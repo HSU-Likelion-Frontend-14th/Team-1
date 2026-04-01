@@ -2,7 +2,7 @@ body {
   font-family: sans-serif;
   background: aliceblue;
   color: black;
-  font-weight: 1000;
+  font-weight: 900;
 }
 
 nav {
@@ -22,9 +22,6 @@ nav {
   color: #4A86FF;
 }
 
-.nav-logo span {
-  color: #4A86FF;
-}
 
 .nav-links {
   display: flex;
@@ -107,7 +104,7 @@ section {
   color: #4A86FF;
 }
 
-.profile_img {
+.profile-img {
   width: 5rem;
   height: 5rem;
   border-radius: 50%;
@@ -147,7 +144,7 @@ section {
 }
 
 .detail-block p {
-  font-size: 0.5em;
+  font-size: 0.5rem;
   font-weight: 300;
   line-height: 1.7;
 }
@@ -169,7 +166,7 @@ section {
   max-width: 13.75rem;
   border-radius: 0.375rem;
   overflow: hidden;
-  box-shadow: 0 2px 0.75rem gray;
+  box-shadow: 0 2px 0.75rem rgba(0, 0, 0, 0.15);
   background: white;
 }
 
