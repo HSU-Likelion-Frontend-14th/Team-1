@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>포트폴리오</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <nav>
+    <a href="#hero" class="nav-logo">PORTFOLIO.</a> 
+
+    <ul class="nav-menu">
+      <li><a href="#about">ABOUT</a></li>
+      <li><a href="#hobby">HOBBY</a></li>
+      <li><a href="#contact">CONTACT</a></li>
+    </ul>
+  </nav>
+
+
+  <section class="hero" id="hero">
+    <div class="hero-text">
+      <h2>
+      안녕하세요!<br>
+      제 이름은  장현서입니다.<br>
+      멋있는 개발자가 되고 싶어요!
+      </h2>
+    </div>
+  </section>
+
+
+  <section class="about-section" id="about">
+    <h2 class="section-title">ABOUT</h2>
+    <div class="about-grid">
+      <div class="card profile-card">
+        <img src="images/profile.png" alt="프로필" class="profile-photo">
+        <p class="profile-name">장현서</p>
+
+        <ul class="contact-list">
+          <li>
+            <img src="images/phone.svg" class="contact-icon" alt="전화">
+            <span>010.5744.1924</span>
+          </li>
+          <li>
+            <img src="images/email.svg" class="contact-icon" alt="이메일">
+            <span>changhs1227@hansung.ac.kr</span>
+          </li>
+          <li>
+            <img src="images/address.svg" class="contact-icon" alt="주소">
+            <span>서울특별시 노원구 공릉동</span>
+          </li>
+      </ul>
+      </div>
+
+      <div class="info-card">
+        <div class="info-block">
+          <p class="info-label">EDUCATION</p>
+          <p class="info-value">한성대학교 AI응용학과</p> 
+          <p class="info-value">2024.03 ~ 2026.03</p> 
+        </div>
+        <div class="info-block">
+          <p class="info-label">WORK</p>
+          <p class="info-value">프론트엔드 개발자</p>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <div class="info-block">
+          <p class="info-label">SKILLS</p>
+          <p class="info-value">html</p> 
+          <p class="info-value">css</p>
+          <p class="info-value">javascript</p>
+          <p class="info-value">python</p>
+        </div>
+        <div class="info-block">
+          <p class="info-label">ACTIVITIES</p>
+          <p class="info-value">멋쟁이 사자처럼 14기</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <section class="hobby-section" id="hobby">
+    <h2 class="section-title">HOBBY</h2>
+
+    <div class="hobby-grid">
+
+      <div class="hobby-card">
+        <div class="hobby-header"><span>넷플릭스 보기</span></div> 
+        <div class="hobby-img-wrap">
+          <img src="images/netflix.png" alt="취미1" class="hobby-img">
+        
+        </div>
+      </div>
+
+      <div class="hobby-card">
+        <div class="hobby-header"><span>잠자기</span></div>
+        <div class="hobby-img-wrap">
+          <img src="images/sleep.png" alt="취미2" class="hobby-img">
+        </div>
+      </div>
+
+      <div class="hobby-card">
+        <div class="hobby-header"><span>맛집 탐방</span></div> 
+        <div class="hobby-img-wrap">
+          <img src="images/store.png" alt="취미3" class="hobby-img">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="contact"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>

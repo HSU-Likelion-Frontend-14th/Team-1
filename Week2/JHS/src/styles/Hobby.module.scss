@@ -1,0 +1,92 @@
+@use 'variables' as *;
+
+.hobbySection {
+  width: 100%;
+  background: $bg-light;
+  padding: 80px 0 120px;
+}
+
+.sectionTitle {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(32px, 3.65vw, 70px);
+  font-weight: 800;
+  color: $blue;
+  text-align: center;
+  margin-bottom: 56px;
+  -webkit-text-stroke: 1px #000000;
+}
+
+.hobbyGrid {
+  display: flex;
+  gap: 20px;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  @media (max-width: 768px) {
+    padding: 0 16px;
+  }
+}
+
+.hobbyCard {
+  flex: 1;
+  aspect-ratio: 380 / 377;
+  background: $white;
+  border: 1px solid $border;
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+
+  @media (max-width: 1024px) {
+    width: 100%;
+    max-width: 480px;
+    aspect-ratio: auto;
+  }
+}
+
+.hobbyHeader {
+  width: 100%;
+  flex: 0 0 calc(100% * 80 / 377);
+  background: $blue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Inter', 'Noto Sans KR', sans-serif;
+  font-size: clamp(14px, 1.67vw, 32px);
+  font-weight: 700;
+  color: $white;
+  padding: 16px 0;
+
+  @media (max-width: 1024px) {
+    flex: none;
+    padding: 16px 0;
+  }
+}
+
+.hobbyImgWrap {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $white;
+  padding: 16px 0;
+}
+
+.hobbyImg {
+  width: calc(100% * 300 / 380);
+  aspect-ratio: 300 / 220;
+  object-fit: fill;
+  display: block;
+
+  @media (max-width: 1024px) {
+    width: 80%;
+  }
+}

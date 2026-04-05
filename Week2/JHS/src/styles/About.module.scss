@@ -1,0 +1,145 @@
+@use 'variables' as *;
+
+.aboutSection {
+  width: 100%;
+  background: $bg-light;
+  padding: 80px 0 100px;
+}
+
+.sectionTitle {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(32px, 3.65vw, 70px);
+  font-weight: 800;
+  color: $blue;
+  text-align: center;
+  margin-bottom: 56px;
+  -webkit-text-stroke: 1px #000000;
+}
+
+.aboutGrid {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  @media (max-width: 768px) {
+    padding: 0 16px;
+  }
+}
+
+.card {
+  flex: 1;
+  background: $white;
+  border: 1px solid $border;
+  border-radius: 16px;
+  padding: 32px 28px;
+
+  @media (max-width: 1024px) {
+    width: 100%;
+    max-width: 480px;
+  }
+}
+
+.profileCard {
+  composes: card;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+  min-height: 498px;
+
+  @media (max-width: 1024px) {
+    min-height: auto;
+  }
+}
+
+.profilePhoto {
+  width: clamp(80px, 10.21vw, 196px);
+  height: clamp(80px, 10.42vw, 200px);
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profileName {
+  font-family: 'Inter', 'Noto Sans KR', sans-serif;
+  font-size: clamp(20px, 2.08vw, 40px);
+  font-weight: 700;
+  color: $blue;
+}
+
+.contactList {
+  list-style: none;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: left;
+
+  li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-family: 'Inter', 'Noto Sans KR', sans-serif;
+    font-size: clamp(11px, 0.83vw, 16px);
+    font-weight: 500;
+    color: $text-sub;
+    line-height: 1.7;
+  }
+}
+
+.contactIcon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.infoCard {
+  flex: 1;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: 40px;
+  min-height: 498px;
+  background: transparent;
+  border: none;
+  padding: 32px 28px;
+  box-sizing: border-box;
+
+  @media (max-width: 1024px) {
+    width: 100%;
+    max-width: 480px;
+    min-height: auto;
+    grid-template-rows: auto auto;
+  }
+}
+
+.infoBlock {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.infoLabel {
+  font-family: 'Inter', sans-serif;
+  font-size: clamp(16px, 1.67vw, 32px);
+  font-weight: 700;
+  color: $text-dark;
+}
+
+.infoValue {
+  font-family: 'Inter', 'Noto Sans KR', sans-serif;
+  font-size: clamp(12px, 1.04vw, 20px);
+  font-weight: 700;
+  color: $text-mid;
+  line-height: 1.7;
+}
