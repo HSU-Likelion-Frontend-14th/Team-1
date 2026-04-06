@@ -1,119 +1,79 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
 import './App.css'
+import ProfileItem from './components/profileItem'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const profiles = [
+    { id: 1, img: "/assets/전화.png", imgText: "전화", text: "010-2350-2813" },
+    { id: 2, img: "/assets/이메일.png", imgText: "이메일", text: "skuy369@hansung.ac.kr"},
+    { id: 3, img: "/assets/주소.png", imgText: "주소", text: "경기도 의정부시 신곡동" }
+  ]
+
+  const abouts = [
+    { id: 1, title: "EDUCATION", text: "한성대학교 컴퓨터공학부 \n2022.03 ~ 2028.02" },
+    { id: 2, title: "SKILLS", text: "C, Java, Unity" },
+    { id: 3, title: "WORK", text: "프론트엔드 개발자" },
+    { id: 4, title: "ACTIVITIES", text: "멋쟁이사자처럼 14기" }
+  ]
+
+  const hobbys = [
+    { id: 1, title: "게임하기", img: "/assets/1.jpg", imgText: "게임하기" },
+    { id: 2, title: "농구하기", img: "/assets/2.jpg", imgText: "농구하기" },
+    { id: 3, title: "유니티하기", img: "/assets/3.jpg", imgText: "유니티하기" }
+  ]
 
   return (
     <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
-
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
+      <header>
+        <h1>PORTFOLIO.</h1>
+        <nav>
           <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
+            <li>ABOUT</li>
+            <li>HOBBY</li>
+            <li>CONTACT</li>
           </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
+        </nav>
+      </header>
 
-      <div className="ticks"></div>
-      <section id="spacer"></section>
+      <main>
+        <section id="intro">
+          <h2>
+            안녕하세요! <br/>
+            제 이름은 김성빈 입니다. <br/>
+            배워가는 개발자가 되고 싶어요.
+          </h2>
+        </section>
+
+        <section>
+          <h2 className="aboutSection">ABOUT</h2>
+          <div id="about">
+            <article className="profile">
+              <img src={"/assets/picture.png"} alt="프로필 사진"/>
+              <div className="profileInfo">
+                <p className="name">김성빈</p>
+                {profiles.map((profile) => (
+                  <ProfileItem key={profile.id} img={profile.img} imgText={profile.imgText} text={profile.text}/>
+                ))}
+              </div>
+            </article>
+
+            <div className="grid">
+              {abouts.map((about) => (
+                <aboutItem key={about.id} title={about.title} text={about.text}/>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="hobby">
+          <h2 className="sectionTitle">HOBBY</h2>
+          <ul>
+            {hobbys.map((hobby) => (
+              <HobbyItem key={hobby.id} title={hobby.title} img={hobby.img} imgText={hobby.imgText}/>
+            ))}
+          </ul>
+        </section>
+      </main>
     </>
   )
 }
