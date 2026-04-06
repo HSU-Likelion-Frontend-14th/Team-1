@@ -1,0 +1,17 @@
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.infoItem {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 12px;
+  padding-bottom: 8px;
+}
+
+.infoItem .icon {
+  width: 16px;
+  height: 16px;
+}

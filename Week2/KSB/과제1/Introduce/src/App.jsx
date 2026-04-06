@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import './App.css'
-import ProfileItem from './components/profileItem'
+import ProfileItem from './components/profileItem.jsx'
+import AboutItem from './components/aboutItem.jsx'
+import HobbyItem from './components/hobbyItem.jsx'
 
 function App() {
   const profiles = [
@@ -52,14 +54,23 @@ function App() {
               <div className="profileInfo">
                 <p className="name">김성빈</p>
                 {profiles.map((profile) => (
-                  <ProfileItem key={profile.id} img={profile.img} imgText={profile.imgText} text={profile.text}/>
+                  <ProfileItem 
+                    key={profile.id} 
+                    img={profile.img} 
+                    imgText={profile.imgText} 
+                    text={profile.text}
+                  />
                 ))}
               </div>
             </article>
 
             <div className="grid">
               {abouts.map((about) => (
-                <aboutItem key={about.id} title={about.title} text={about.text}/>
+                <AboutItem 
+                  key={about.id} 
+                  title={about.title} 
+                  text={about.text}
+                />
               ))}
             </div>
           </div>
@@ -69,7 +80,12 @@ function App() {
           <h2 className="sectionTitle">HOBBY</h2>
           <ul>
             {hobbys.map((hobby) => (
-              <HobbyItem key={hobby.id} title={hobby.title} img={hobby.img} imgText={hobby.imgText}/>
+              <HobbyItem 
+                key={hobby.id} 
+                title={hobby.title} 
+                img={hobby.img} 
+                imgText={hobby.imgText}
+              />
             ))}
           </ul>
         </section>

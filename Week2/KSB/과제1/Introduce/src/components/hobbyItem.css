@@ -1,0 +1,27 @@
+.hobbyList {
+  flex: 1;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: white;
+}
+
+.hobbyTitle {
+  background-color: #5d8aff;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 15px;
+}
+
+.hobbyContent {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hobbyContent img {
+  max-width: 100%;
+  max-height: fit-content;
+  border-radius: 4px;
+}

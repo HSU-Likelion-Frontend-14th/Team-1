@@ -85,39 +85,12 @@ main {
   text-align: center;
 }
 
-.infoItem {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  font-size: 12px;
-  padding-bottom: 8px;
-}
-
-.infoItem .icon {
-  width: 16px;
-  height: 16px;
-}
-
 .grid {
   flex: 1.5;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 200px 200px;
   gap: 20px;
-}
-
-.gridItem {
-  padding: 10%;
-}
-
-.gridItem h3 {
-  font-size: 18px;
-  margin-bottom: 8px;
-}
-
-.gridItem p {
-  font-size: 14px;
-  color: gray;
 }
 
 .hobby {
