@@ -1,4 +1,7 @@
+// 라우터 관련 컴포넌트들 불러오기
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+// 페이지와 컴포넌트들 불러오기
 import Header from './components/Header';
 import Home from './pages/Home';
 import Board from './pages/Board';
