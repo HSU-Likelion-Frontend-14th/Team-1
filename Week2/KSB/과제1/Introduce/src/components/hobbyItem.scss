@@ -1,0 +1,30 @@
+$lightblue: #5d8aff;
+
+.hobbyList {
+  flex: 1;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: white;
+}
+
+.hobbyTitle {
+  background-color: $lightblue;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.hobbyContent {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    max-width: 100%;
+    max-height: fit-content;
+    border-radius: 4px;
+  }
+}
