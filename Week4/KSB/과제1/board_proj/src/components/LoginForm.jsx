@@ -43,7 +43,7 @@ function LoginForm() {
                     value={formData.userId} 
                     onChange={handleUpdate} 
                 />
-                {(isErrorPrint || isIdInvalid) && formData.userId.length < 3 ? (
+                {(isErrorPrint || isIdInvalid) ? (
                     <div className="errorMsg">아이디는 3자 이상이어야 합니다.</div>
                 ) : <br />}
 
@@ -56,7 +56,7 @@ function LoginForm() {
                     value={formData.password}
                     onChange={handleUpdate} 
                 />
-                {(isErrorPrint || isPasswordInvalid) && formData.password.length < 6 ? (
+                {(isErrorPrint || isPasswordInvalid) ? (
                     <div className="errorMsg">비밀번호는 6자 이상이어야 합니다.</div>
                 ) : <br />}
 
