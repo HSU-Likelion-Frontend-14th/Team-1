@@ -1,8 +1,10 @@
 import "./SignUpForm.scss";     
 import { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import { Link } from "react-router-dom";
 
-function SignUpForm({setIsSuccessSignup, handlePage}) {
+function SignUpForm() {
+    const navigate = useNavigate();
     const [formData, setFormData] = useState({ 
         userId: "", 
         email: "",
@@ -10,6 +12,7 @@ function SignUpForm({setIsSuccessSignup, handlePage}) {
         passwordConfirm: ""
     });
     const [isErrorPrint, setIsErrorPrint] = useState(false);
+    const [isSuccessSignup, setIsSuccessSignup] = useState(false);
 
     // 입력값이 바뀔 때마다 상태를 업데이트
     const handleUpdate = (e) => {
@@ -30,9 +33,14 @@ function SignUpForm({setIsSuccessSignup, handlePage}) {
         // 모든 조건이 충족되었는지 확인
         if (isFormValid) {
             console.log(`가입 제출 성공 >> ID : ${formData.userId}, Email : ${formData.email}, Password : ${formData.password}`);
-            setIsSuccessSignup(true);
-            handlePage(e);
+            
+            alert('가입이 완료되었습니다!');
+
+            // 가입 후 로그인으로 이동
+            navigate('/login');
         } else {
+            alert('가입에 실패했습니다. 다시 시도해주세요.');
+            
             // 에러 메시지 노출 활성화
             setIsErrorPrint(true); 
         }
