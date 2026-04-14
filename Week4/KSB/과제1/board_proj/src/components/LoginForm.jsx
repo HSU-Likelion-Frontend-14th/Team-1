@@ -34,7 +34,7 @@ function LoginForm() {
 
     return (
         <>
-            <div>
+            <div className="loginFrame">
                 <p>아이디</p>
                 <input 
                     id="userId" 
@@ -62,6 +62,10 @@ function LoginForm() {
 
                 <br />
                 <button type="submit" onClick={handleSubmit}>로그인</button>
+            </div>
+            <div className="signupLink">
+                <br />
+                <p>계정이 없으신가요? <Link to="/signup">회원가입</Link></p>
             </div>
         </>
     );
