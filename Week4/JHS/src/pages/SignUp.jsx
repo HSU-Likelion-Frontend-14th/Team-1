@@ -1,12 +1,44 @@
+import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import styles from './SignUp.module.scss';
 
 function Signup() {
   const navigate = useNavigate();
 
+  const [form, setForm] = useState({
+    id: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    setForm((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const idValid = /^[A-Za-z0-9]{4,20}$/.test(form.id);
+  const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email);
+  const passwordValid =
+    /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(form.password);
+  const confirmPasswordValid =
+    form.confirmPassword.length > 0 && form.password === form.confirmPassword;
+
+  const isFormValid =
+    idValid && emailValid && passwordValid && confirmPasswordValid;
+
   const handleSignup = (e) => {
     e.preventDefault();
-    alert('가입이 완료되었습니다!');
+
+    if (!isFormValid) {
+      return;
+    }
+
+    console.log('회원가입 정보:', form);
     navigate('/');
   };
 
@@ -26,40 +58,64 @@ function Signup() {
             <label htmlFor="signupId">아이디</label>
             <input
               id="signupId"
+              name="id"
               type="text"
               placeholder="영문+숫자 4~20자"
-              required
+              value={form.id}
+              onChange={handleChange}
             />
+            {!idValid && form.id.length > 0 && (
+              <p className={styles.error}>
+                아이디는 영문+숫자 4~20자로 입력해 주세요.
+              </p>
+            )}
           </div>
 
           <div className={styles.field}>
             <label htmlFor="signupEmail">이메일</label>
             <input
               id="signupEmail"
+              name="email"
               type="email"
               placeholder="example@domain.com"
-              required
+              value={form.email}
+              onChange={handleChange}
             />
+            {!emailValid && form.email.length > 0 && (
+              <p className={styles.error}>올바른 이메일 형식이 아닙니다.</p>
+            )}
           </div>
 
           <div className={styles.field}>
             <label htmlFor="signupPw">비밀번호</label>
             <input
               id="signupPw"
+              name="password"
               type="password"
               placeholder="8자 이상, 영문+숫자"
-              required
+              value={form.password}
+              onChange={handleChange}
             />
+            {!passwordValid && form.password.length > 0 && (
+              <p className={styles.error}>
+                비밀번호는 8자 이상이며 영문과 숫자를 모두 포함해야 합니다.
+              </p>
+            )}
           </div>
 
           <div className={styles.field}>
             <label htmlFor="signupPwCheck">비밀번호 확인</label>
             <input
               id="signupPwCheck"
+              name="confirmPassword"
               type="password"
               placeholder="비밀번호 다시 입력"
-              required
+              value={form.confirmPassword}
+              onChange={handleChange}
             />
+            {form.confirmPassword.length > 0 && !confirmPasswordValid && (
+              <p className={styles.error}>비밀번호가 일치하지 않습니다.</p>
+            )}
           </div>
 
           <button type="submit" className={styles.submitBtn}>
