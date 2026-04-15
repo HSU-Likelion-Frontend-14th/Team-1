@@ -1,15 +1,8 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-<<<<<<< HEAD
-import Login from './Login.jsx';
-import "../styles/SignUp.scss";
-
-function Signup() {
-=======
-import "../styles/SignUp.scss";
+import styles from "../styles/SignUp.module.scss";
 
 function SignUp() {
->>>>>>> refs/rewritten/recover
   const navigate = useNavigate();
 
   const [username, setUsername] = useState('');
@@ -18,7 +11,7 @@ function SignUp() {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
 
-  const isUsernameVaild = /^[a-zA-Z0-9]{4,20}$/.test(username);
+  const isUsernameValid = /^[a-zA-Z0-9]{4,20}$/.test(username);
   const isEmailValid = email.includes('@');
   const isPasswordValid = 
     password.length >= 8 &&
@@ -26,7 +19,7 @@ function SignUp() {
     /[0-9]/.test(password);
   const isConfirmPasswordValid = password === confirmPassword;
   
-  const isFormValid = isUsernameVaild && isEmailValid && isPasswordValid && isConfirmPasswordValid;
+  const isFormValid = isUsernameValid && isEmailValid && isPasswordValid && isConfirmPasswordValid;
 
   const handleSignup = (e) => {
     e.preventDefault();
@@ -46,103 +39,98 @@ function SignUp() {
   };
 
   return (
-    <div className="signup-page">
-      <div className="signup-container">
-        <h2 className="signup-title">회원가입</h2>
-        <p className="signup-description">
-        </p>
-
-        <form className="signup-form" onSubmit={handleSignup}>
-          <label className="signup-label">아이디</label>
+    <div className={styles.signupPage}>
+      <div className={styles.signupContainer}>
+        <h2 className={styles.signupTitle}>회원가입</h2>
+        <p className={styles.signupDescription} />
+        
+        <form className={styles.signupForm} onSubmit={handleSignup}>
+          <label className={styles.signupLabel}>아이디</label>
           <input
-            className="signup-input"
+            className={styles.signupInput}
             type="text"
             placeholder="영문+숫자 4~20자"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
-          {username && !isUsernameVaild &&(
-            <p className = "signup-error">
+          {username && !isUsernameValid &&(
+            <p className={styles.signupError}>
               아이디는 영문+숫자 4~20자로 입력해주세요.
             </p>
           )}
 
-          <label className="signup-label">이메일</label>
+          <label className={styles.signupLabel}>이메일</label>
           <input
-            className="signup-input"
+            className={styles.signupInput}
             type="email"
             placeholder="example@domain.com"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
           {email && !isEmailValid && (
-            <p className = "signup-error">
+            <p className={styles.signupError}>
               이메일 형식이 올바르지 않습니다.
             </p>
           )}
 
-          <label className="signup-label">비밀번호</label>
-          <input
-            className="signup-input"
-<<<<<<< HEAD
-            type= {showPassword ? "text" : "password"}
-=======
-            type={showPassword ? "text" : "password"}
->>>>>>> refs/rewritten/recover
-            placeholder="8자 이상, 영문+숫자"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <button type='button' className='password-toggle' onClick={() => setShowPassword((prev) => !prev)} >
-            {showPassword ? '비밀번호 숨기기' : '비밀번호 보기'}
-          </button>
+          <label className={styles.signupLabel}>비밀번호</label>
+          <div className={styles.passwordField}>
+            <input
+              className={styles.signupInput}
+              type={showPassword ? "text" : "password"}
+              placeholder="8자 이상, 영문+숫자"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <button
+              type="button"
+              className={styles.passwordToggle}
+              onClick={() => setShowPassword((prev) => !prev)}
+              aria-label={showPassword ? '비밀번호 숨기기' : '비밀번호 보기'}
+            >
+              👁
+            </button>
+          </div>
           {password && !isPasswordValid && (
-<<<<<<< HEAD
-            <p className = "signup-error">
-=======
-            <p className="signup-error">
->>>>>>> refs/rewritten/recover
+            <p className={styles.signupError}>
               비밀번호는 8자 이상, 영문+숫자로 입력해주세요.
             </p>
           )}
           
-          <label className="signup-label">비밀번호 확인</label>
-          <input
-            className="signup-input"
-            type={showPassword ? "text" : "password"}
-            placeholder="비밀번호 다시 입력"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-          />
-          
-          <button type='button' className='password-toggle' onClick={() => setShowPassword((prev) => !prev)} >
-            {showPassword ? '비밀번호 숨기기' : '비밀번호 보기'}
-          </button>
-            {confirmPassword && !isConfirmPasswordValid && (
-<<<<<<< HEAD
-            <p className = "signup-error">
-=======
-            <p className="signup-error">
->>>>>>> refs/rewritten/recover
+          <label className={styles.signupLabel}>비밀번호 확인</label>
+          <div className={styles.passwordField}>
+            <input
+              className={styles.signupInput}
+              type={showPassword ? "text" : "password"}
+              placeholder="비밀번호 다시 입력"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+            />
+            <button
+              type="button"
+              className={styles.passwordToggle}
+              onClick={() => setShowPassword((prev) => !prev)}
+              aria-label={showPassword ? '비밀번호 숨기기' : '비밀번호 보기'}
+            >
+              👁
+            </button>
+          </div>
+          {confirmPassword && !isConfirmPasswordValid && (
+            <p className={styles.signupError}>
               비밀번호가 일치하지 않습니다.
-            </p>)}
-            <button className="signup-submit" type="submit" disabled={!isFormValid}>
+            </p>
+          )}
+          <button className={styles.signupSubmit} type="submit" disabled={!isFormValid}>
             가입하기
           </button>
         </form>
-<<<<<<< HEAD
-        <p className = "signup-footer">이미 계정이 있나요? <Link to = "/login">로그인</Link></p>
-=======
-        <p className="signup-footer">이미 계정이 있나요? <Link to="/login">로그인</Link></p>
->>>>>>> refs/rewritten/recover
+        <p className={styles.signupFooter}>
+          이미 계정이 있나요? <Link className={styles.footerLink} to="/login">로그인</Link>
+        </p>
       </div>
     </div>
   );
   
 }
 
-<<<<<<< HEAD
-export default Signup;
-=======
 export default SignUp;
->>>>>>> refs/rewritten/recover

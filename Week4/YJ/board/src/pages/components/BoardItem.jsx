@@ -1,42 +1,40 @@
-import React, { useState } from 'react'; // 1. useState 추가
-import "../../styles/Item.scss";
+import { useState } from 'react';
+import styles from "../../styles/Item.module.scss";
 
 function BoardItem({ post, deletePost, updatePost }) {
   const [isEdit, setEdit] = useState(false);
   const [editContent, setEditContent] = useState(post.content);
 
-  // 수정 완료 처리 함수
   const handleUpdate = () => {
-    updatePost(post.id, editContent); // 부모 컴포넌트의 update 함수 호출
-    setEdit(false); // 수정 모드 종료
+    updatePost(post.id, editContent);
+    setEdit(false);
   };
 
   return (
-    <li className='board-item'>
-      <div className='item-content'>
-        <h4 className='item-title'>{post.title}</h4>
+    <li className={styles.boardItem}>
+      <div className={styles.itemContent}>
+        <h4 className={styles.itemTitle}>{post.title}</h4>
         {isEdit ? (
-          <textarea 
+          <textarea
+            className={styles.editTextarea}
             value={editContent} 
-            onChange={(e) => setEditContent(e.target.value)} // 2. 화살표 함수 오타 수정
+            onChange={(e) => setEditContent(e.target.value)}
           />
         ) : (
-          <p className='item-text'>{post.content}</p>
+          <p className={styles.itemText}>{post.content}</p>
         )}
       </div>
 
-      <div className='item-buttons'>
+      <div className={styles.itemButtons}>
         {isEdit ? (
           <>
-            {/* 수정 모드일 때 보여줄 버튼 */}
-            <button type='button' onClick={handleUpdate}>저장</button>
-            <button type='button' onClick={() => setEdit(false)}>취소</button>
+            <button className={styles.itemSave} type='button' onClick={handleUpdate}>저장</button>
+            <button className={styles.itemCancel} type='button' onClick={() => setEdit(false)}>취소</button>
           </>
         ) : (
           <>
-            {/* 일반 모드일 때 보여줄 버튼 */}
-            <button className='item-update' onClick={() => setEdit(true)}>수정</button>
-            <button className='item-delete' onClick={() => deletePost(post.id)}>삭제</button>
+            <button className={styles.itemUpdate} type='button' onClick={() => setEdit(true)}>수정</button>
+            <button className={styles.itemDelete} type='button' onClick={() => deletePost(post.id)}>삭제</button>
           </>
         )}
       </div>

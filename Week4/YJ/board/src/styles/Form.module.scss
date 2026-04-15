@@ -1,9 +1,9 @@
-.board-form{
+.boardForm {
     display: flex;
     flex-direction: column;
 }
 
-.board-title {
+.boardTitle {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
@@ -11,7 +11,7 @@
     box-sizing: border-box;
 }
 
-.board-content {
+.boardContent {
     padding: 10px;
     height: 100px;
     margin-bottom: 10px;
@@ -19,10 +19,9 @@
     box-sizing: border-box;
 }
 
-.board-submit {
+.boardSubmit {
     border: none;
     border-radius: 6px;
     box-sizing: border-box;
 }
-
 

@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
-import "../styles/Login.scss";
+import styles from "../styles/Login.module.scss";
+
 function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -26,50 +27,52 @@ function Login() {
   };
 
   return (
-    <div className="login-page">
-      <div className="login-container">
-        <h2 className="login-title">로그인</h2>
+    <div className={styles.loginPage}>
+      <div className={styles.loginContainer}>
+        <h2 className={styles.loginTitle}>로그인</h2>
 
-        <form className="login-form" onSubmit={handleLogin}>
-          <label className="login-label">아이디</label>
+        <form className={styles.loginForm} onSubmit={handleLogin}>
+          <label className={styles.loginLabel}>아이디</label>
           <input
-            className="login-input"
+            className={styles.loginInput}
             type="text"
             placeholder="아이디"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
           {username && !isUsernameValid && (
-            <p className="login-error">
+            <p className={styles.loginError}>
               아이디는 3자 이상 입력해주세요.
             </p>
           )}
 
-          <label className="login-label">비밀번호</label>
-          <input
-            className="login-input"
-            type={showPassword ? "text" : "password"}
-            placeholder="비밀번호"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-
-          <button
-            type="button"
-            className="login-password-toggle"
-            onClick={() => setShowPassword((prev) => !prev)}
-          >
-            {showPassword ? '비밀번호 숨기기' : '비밀번호 보기'}
-          </button>
+          <label className={styles.loginLabel}>비밀번호</label>
+          <div className={styles.passwordField}>
+            <input
+              className={styles.loginInput}
+              type={showPassword ? "text" : "password"}
+              placeholder="비밀번호"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <button
+              type="button"
+              className={styles.passwordToggle}
+              onClick={() => setShowPassword((prev) => !prev)}
+              aria-label={showPassword ? '비밀번호 숨기기' : '비밀번호 보기'}
+            >
+              👀
+            </button>
+          </div>
 
           {password && !isPasswordValid && (
-            <p className="login-error">
+            <p className={styles.loginError}>
               비밀번호는 8자 이상, 영문+숫자로 입력해주세요.
             </p>
           )}
 
           <button
-            className="login-submit"
+            className={styles.loginSubmit}
             type="submit"
             disabled={!isFormValid}
           >
@@ -77,8 +80,8 @@ function Login() {
           </button>
         </form>
 
-        <p className="login-footer">
-          계정이 없나요? <Link to="/signup">회원가입</Link>
+        <p className={styles.loginFooter}>
+          계정이 없나요? <Link className={styles.footerLink} to="/signup">회원가입</Link>
         </p>
       </div>
     </div>

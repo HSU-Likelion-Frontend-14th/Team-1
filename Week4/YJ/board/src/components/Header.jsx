@@ -1,16 +1,13 @@
 import { Link } from 'react-router-dom';
-import '../styles/Header.scss';
+import styles from '../styles/Header.module.scss';
 
 function Header() {
   return (
-    <header>
-      <Link to="/">홈</Link>
-      <Link to="/board">게시판</Link>
-<<<<<<< HEAD
-=======
-      <Link to="/login">로그인</Link>
->>>>>>> refs/rewritten/recover
-      <Link to="/signup">회원가입</Link>
+    <header className={styles.header}>
+      <Link className={styles.link} to="/">홈</Link>
+      <Link className={styles.link} to="/board">게시판</Link>
+      <Link className={styles.link} to="/login">로그인</Link>
+      <Link className={styles.link} to="/signup">회원가입</Link>
     </header>
   );
 }
