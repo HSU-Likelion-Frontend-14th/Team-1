@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { BoardForm } from "./components/BoardForm.jsx";
 import { BoardList } from "./components/BoardList.jsx";
-import "../styles/Board.scss";
 import BoardItem from "./components/BoardItem.jsx";
+import styles from "../styles/Board.module.scss";
 
 function Board() {
   const [posts, setPosts] = useState([
@@ -29,15 +29,15 @@ function Board() {
   };
 
   return (
-    <div className="board">
+    <div className={styles.board}>
       <h2>📝 자유 게시판</h2>
 
-      <div className = "form">
+      <div className={styles.formSection}>
         <h3>게시글 작성 영역 (BoardForm)</h3>
         <BoardForm addPost={addPost} /*posts={posts}*/ />
       </div>
 
-      <div className="list">
+      <div className={styles.listSection}>
         <h3>게시글 목록 영역 (BoardList)</h3>
         {posts.length === 0 ? (
           <ul>
@@ -46,10 +46,12 @@ function Board() {
         ) : (
           <BoardList>
             {posts.map((post) => (
-              <BoardItem key={post.id} post={post} deletePost = {deletePost}/>
-            ))}
-            {posts.map((post) => (
-              <BoardItem key={post.id} post={post} updatePost={updatePost} />
+              <BoardItem
+                key={post.id}
+                post={post}
+                deletePost={deletePost}
+                updatePost={updatePost}
+              />
             ))}
           </BoardList>
         )}
