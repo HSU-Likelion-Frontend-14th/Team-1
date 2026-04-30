@@ -34,6 +34,15 @@ function SignUpForm() {
         if (isFormValid) {
             console.log(`가입 제출 성공 >> ID : ${formData.userId}, Email : ${formData.email}, Password : ${formData.password}`);
             
+            // 세션 스토리지 추가
+            const userData = {
+                userId: formData.userId,
+                email: formData.email,
+                password: formData.password
+            };
+            const userDataString = JSON.stringify(userData);
+            sessionStorage.setItem('userId', userDataString);
+
             alert('가입이 완료되었습니다!');
 
             // 가입 후 로그인으로 이동
